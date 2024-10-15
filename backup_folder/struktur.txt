@@ -1,0 +1,51 @@
+lib :
+
+  core:
+    - global_component:
+      - app_logo.dart          # Could be the EventPulse logo shown in the splash screen
+      - event_card.dart        # For event cards like BTS or Taylor Swift with image and title
+      - date_badge.dart        # Date element for displaying concert dates like "15 Oct"
+      - booking_button.dart    # The red "Book Now" button component
+    - config :
+      - main_app.dart          # The main app configuration like themes, locales, etc.
+    - utils :
+      - route_utils.dart       # Navigation management between screens (like Home to Detail)
+    - constants :
+      - strings.dart           # Text constants like "Music Events, Curated for Your World"
+      - colors.dart            # Color definitions for the app theme (like red, black, etc.)
+      - images.dart            # Paths for images used, like event logos or artist images
+
+  data:
+    - events:
+      - model_responses:
+        - event_model.dart     # Data model representing an event, e.g. Event(title, date, etc.)
+      - dummy:
+        - dummy_events.dart    # Dummy data to display for events like BTS or Taylor Swift
+
+  features:
+    - home:
+      - screen:
+        - home_screen.dart     # The main screen displaying events in the carousel view
+      - widgets:
+        - event_list.dart      # Widget for displaying the top live events and popular events
+        - search_bar.dart      # Search bar component at the top of the Home screen
+        - tab_view.dart        # Tabbed view for categories like "Live" "Popular" etc.
+      - controller:
+        - home_controller.dart # Manages state for fetching and displaying events on HomeScreen
+        
+    - event_detail:
+      - screen:
+        - event_detail_screen.dart # The screen that shows event details like BTS concert
+      - widgets:
+        - event_header.dart      # The header containing event image and title (like BTS)
+        - event_info.dart        # Section showing concert date, description, and price
+        - booking_button.dart    # Reusable booking button widget
+      - controller:
+        - event_detail_controller.dart # Controller for managing event details page data
+
+  features_common:
+    - bottom_nav:
+      - screen:
+        - bottom_nav_screen.dart    # The bottom navigation component with icons
+      - widgets:
+        - bottom_nav_icon.dart      # Icon widgets for each section like Home, Search, etc.
